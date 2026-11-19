@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI · 55 trophies, offline tracker</title>
+<meta name="description" content="Unofficial fan-made guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI: checklist, platinum roadmap, missable flags, cited guides. Works fully offline.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>Leonida Trophy Guide</h1>
+    <p class="subtitle">Grand Theft Auto VI · PlayStation 5 · 55 trophies · 1 platinum · 2 gold · 6 silver · 46 bronze</p>
+  </div>
+  <div class="progress" id="progressBox" aria-live="polite">
+    <div class="progress-numbers"><strong id="progressText">0 of 55 earned</strong><span id="progressPct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <p class="progress-sub" id="progressSub">Tick a trophy to save it in this browser.</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" id="tabChecklist" class="tab active" data-view="checklist">Checklist</button>
+  <button type="button" id="tabRoadmap" class="tab" data-view="roadmap">Platinum roadmap</button>
+</nav>
+
+<section class="toolbar" aria-label="Tracker controls">
+  <label class="search">Find a trophy
+    <input type="search" id="search" placeholder="Type a name, e.g. meditate…" autocomplete="off">
+  </label>
+  <div class="filters" role="group" aria-label="Filter by kind">
+    <button type="button" class="filter active" data-kind="all">All <span id="countAll">55</span></button>
+    <button type="button" class="filter" data-kind="story">Story <span id="countStory"></span></button>
+    <button type="button" class="filter" data-kind="missable">Missable <span id="countMissable"></span></button>
+    <button type="button" class="filter" data-kind="collectibles">Collectibles <span id="countCollectibles"></span></button>
+    <button type="button" class="filter" data-kind="activities">Activities <span id="countActivities"></span></button>
+    <button type="button" class="filter" data-kind="online">Online <span id="countOnline">0</span></button>
+  </div>
+  <label class="grade">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="spoilers"><input type="checkbox" id="spoilers"> Hide story spoilers</label>
+  <div class="file-actions">
+    <button type="button" id="exportBtn">Export progress</button>
+    <label class="import-btn">Import progress <input type="file" id="importFile" accept="application/json,.json"></label>
+    <button type="button" id="resetBtn">Reset</button>
+  </div>
+</section>
+
+<main class="layout">
+  <section id="checklistView" class="checklist-view" aria-label="Trophy checklist">
+    <p class="hint" id="listHint">Click a trophy to read its guide and sources. Tick the box when you earn it.</p>
+    <p class="empty" id="emptyState" hidden>No trophies match this filter. There are no online trophies — all 55 are single-player, according to PowerPyx.</p>
+    <ul class="trophy-list" id="trophyList"></ul>
+  </section>
+
+  <section id="roadmapView" class="roadmap-view" hidden aria-label="Roadmap to the platinum">
+    <div class="roadmap-intro">
+      <h2>Roadmap to the platinum</h2>
+      <p>PowerPyx rates the platinum <strong>4/10 difficulty, about 200 hours</strong>, in a single playthrough with no online trophies. The story takes roughly 60–80 hours; after the credits, free-roam continues and everything needed for 100% completion is still reachable. There is <strong>no mission replay</strong>, and <strong>cheats disable trophies and saving</strong> — keep cheats off for the whole run.</p>
+      <p class="missable-callout"><strong>Only 1 potentially missable trophy:</strong> Positive Mental Attitude — the first meditation is offered at Jason's house in Chapter 1 and becomes unavailable after that chapter (PowerPyx / GTABase). Do it the moment the game offers it.</p>
+    </div>
+    <div id="roadmapStages"></div>
+  </section>
+
+  <aside class="detail" id="detailPanel" aria-label="Trophy guide">
+    <div class="detail-empty" id="detailEmpty">
+      <h2>Pick a trophy</h2>
+      <p>Click any trophy in the list and its guide opens here: what to do, when it can be missed, and the sources each fact comes from.</p>
+      <p>Guides are written for this page, in our own words. Official names and descriptions are shown as PlayStation publishes them.</p>
+    </div>
+    <article class="detail-card" id="detailCard" hidden>
+      <p class="detail-grade"><span id="detailGradeBadge"></span><span id="detailKind"></span><span id="detailHidden" hidden>Hidden on PSN</span></p>
+      <h2 id="detailName"></h2>
+      <p class="detail-desc" id="detailDesc"></p>
+      <p class="detail-meta" id="detailMeta"></p>
+      <p class="detail-missable" id="detailMissable" hidden>⚠ Missable — see the guide before you pass this point.</p>
+      <label class="detail-earned"><input type="checkbox" id="detailEarned"> Earned — save to my progress</label>
+      <h3>Guide</h3>
+      <p id="detailGuide"></p>
+      <h3>Sources</h3>
+      <ul class="sources" id="detailSources"></ul>
+    </article>
+  </aside>
+</main>
+
+<footer>
+  <p>Unofficial fan guide. Not affiliated with Rockstar Games, Take-Two Interactive, Sony or PlayStation. No Rockstar logo or official artwork is used anywhere on this page.</p>
+  <p>Trophy names and descriptions are the official PlayStation list as tracked by Exophase and PSNProfiles (18 November 2026). Guides cite PowerPyx, Planet GTA 6, KeenGamer and GTA Zone. Everything on this page works offline; your progress never leaves this browser except when you export it yourself.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
